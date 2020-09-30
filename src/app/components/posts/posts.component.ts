@@ -31,4 +31,17 @@ export class PostsComponent implements OnInit {
   newPost(post: Post): void {
     this.posts.unshift(post);
   }
+
+  deletePost(postId: number) {
+    this.postsService.deletePost(postId)
+      .subscribe(
+        () => {
+          const ind = this.posts.findIndex(post => post.id === postId);
+          this.posts.splice(ind, 1);
+        },
+        error => {
+          this.error = error.message;
+        }
+      );
+  }
 }

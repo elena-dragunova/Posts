@@ -32,4 +32,14 @@ export class PostsService {
         })
       );
   }
+
+  deletePost(id): Observable<{}> {
+    const url = `${this.baseUrl}/posts/${id}`;
+    return this.http.delete<{}>(url)
+      .pipe(
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
 }

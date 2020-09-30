@@ -7,6 +7,9 @@
     <li class="list-group-item">
       <h4>{{post.title}}</h4>
       <p>{{post.body}}</p>
+      <div class="buttons">
+        <button class="btn btn-danger" (click)="deletePost(post.id)">Delete</button>
+      </div>
     </li>
   </ul>
 </div>
