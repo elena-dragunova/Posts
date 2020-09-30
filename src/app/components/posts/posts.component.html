@@ -1,0 +1,16 @@
+<app-post-form (newPostEvent)="newPost($event)"></app-post-form>
+
+<h1 class="mt-5 mb-5 text-center">Posts</h1>
+
+<div *ngIf="posts">
+  <ul *ngFor="let post of posts">
+    <li class="list-group-item">
+      <h4>{{post.title}}</h4>
+      <p>{{post.body}}</p>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="error">
+  <p style="color: red">{{error}}</p>
+</div>
